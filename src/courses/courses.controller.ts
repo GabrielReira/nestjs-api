@@ -8,6 +8,8 @@ import {
   Post
 } from '@nestjs/common';
 import { CoursesService } from './courses.service';
+import { CreateCourseDto } from './dto/create-course.dto';
+import { UpdateCourseDto } from './dto/update-course.dto';
 
 
 @Controller('courses')
@@ -29,12 +31,12 @@ export class CoursesController {
   // }
 
   @Post()
-  create(@Body() body) {
+  create(@Body() body: CreateCourseDto) {
     return this.coursesService.create(body);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() body) {
+  update(@Param('id') id: string, @Body() body: UpdateCourseDto) {
     return this.coursesService.update(id, body);
   }
 

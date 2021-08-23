@@ -27,10 +27,14 @@ export class CoursesService {
         HttpStatus.NOT_FOUND
       );
     }
+
+    return course;
   }
 
   create(createCourseDto: any) {
     this.courses.push(createCourseDto);
+
+    return createCourseDto;
   }
 
   update(id: string, updateCourseDto: any) {
